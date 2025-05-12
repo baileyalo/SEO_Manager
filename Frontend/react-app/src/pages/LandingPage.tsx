@@ -8,7 +8,7 @@ const LandingPage = () => {
           src="/Logo.png"
           alt="Music SEO Icon"
           className="h-[350px] w-[350px] mx-auto" />
-        <h1 className="text-3xl font-bold text-reprisk-blue mt-5 border-b-2 border-reprisk-yellow pb-1 ">
+        <h1 className="text-3xl font-bold text-seo-blue mt-5 border-b-2 border-seo-yellow pb-1 ">
           Welcome to the new SEO Music Manager
         </h1>
       </div>
