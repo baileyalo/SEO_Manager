@@ -48,6 +48,9 @@ const MusicMetaData = () => {
 
   return (
     <div className="p-6 max-w-4xl mx-auto mt-[200px] text-center">
+      <h1 className="text-3xl font-bold mb-4 text-center">
+         SEO Content Metadata
+      </h1>
       <Card className="mt-auto">
         <CardContent className="space-y-4 p-4">
           <Input
