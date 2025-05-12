@@ -1,8 +1,6 @@
 import axios from "axios";
 
-const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY || "AIzaSyBT0HmgQjffNN-dDnqlB_nuOOwaWiR7sRQ";
-
-console.log("key", API_KEY)
+const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY || "AIzaSyBT0HmgQjffNN-dDnqlB_nuOOwaWiR7sRQ"
 
 async function fetchYouTubeVideoDetails(videoId: string) {
     try {
@@ -10,7 +8,6 @@ async function fetchYouTubeVideoDetails(videoId: string) {
             `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${API_KEY}`
         );
         if (!res.data.items.length) throw new Error("No video found.");
-        console.log("kerey", res.data.items[0])
         return res.data.items[0];
     } catch (err: any) {
         console.error("YouTube Error:", err);

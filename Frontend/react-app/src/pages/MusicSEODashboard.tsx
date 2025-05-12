@@ -133,7 +133,7 @@ const MusicSEODashboard = () => {
                 {entry.keywords}
               </div>
 
-              <div className="grid gap-1 text-sm text-gray-700">
+              <div className="grid gap-1 text-sm text-seo-700">
                 <div className="flex items-start">
                   <Youtube className="w-4 h-4 mr-2 mt-0.5 text-red-500" />
                   <span>{entry.youtubeDescription.slice(0, 60)}...</span>

@@ -4,7 +4,7 @@ const LoadingSpinner: React.FC<{ size?: number; className?: string }> = ({ size 
     return (
         <div className={`flex justify-center items-center ${className}`}>
             <div
-                className="animate-spin rounded-full border-4 border-t-reprisk-yellow border-reprisk-blue"
+                className="animate-spin rounded-full border-4 border-t-seo-yellow border-seo-blue"
                 style={{ width: size, height: size }}
             />
         </div>

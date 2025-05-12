@@ -10,7 +10,7 @@ const NotFound = () => {
             </p>
             <NavLink
                 to="/"
-                className="px-6 py-3 bg-reprisk-blue text-reprisk-yellow hover:bg-reprisk-bltr font-semibold cursor-pointer rounded-lg shadow-md transition"
+                className="px-6 py-3 bg-reprisk-blue text-seo-yellow hover:bg-seo-bltr font-semibold cursor-pointer rounded-lg shadow-md transition"
             >
                 Go Back Home
             </NavLink>

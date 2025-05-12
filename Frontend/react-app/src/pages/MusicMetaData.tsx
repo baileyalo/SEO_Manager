@@ -6,6 +6,7 @@ import { Input } from "../components/ui/Input";
 import { Button } from "../components/ui/Button";
 import { YouTubeData } from "../types/Types";
 import { Card, CardContent } from "../components/ui/Card";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const MusicMetaData = () => {
   const [videoId, setVideoId] = useState("");
@@ -14,7 +15,11 @@ const MusicMetaData = () => {
   // const [spotifyData, setSpotifyData] = useState<any | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  console.log("youtubeData1", youtubeData);
+
+  const handleClear = () => {
+    setVideoId("");
+    setTrackId("");
+  };
 
   const handleFetch = async () => {
     if (!videoId) {
@@ -28,7 +33,7 @@ const MusicMetaData = () => {
       setLoading(true);
       const yt = await fetchYouTubeVideoDetails(videoId);
       setYouTubeData(yt);
-      console.log("yt", yt);
+      handleClear();
       // const sp = await fetchSpotifyTrackDetails(trackId);
 
       // setSpotifyData(sp);
@@ -60,12 +65,12 @@ const MusicMetaData = () => {
         </CardContent>
         <div className="mt-5">
           <Button onClick={handleFetch} disabled={loading}>
-            {loading ? "Loading..." : "Fetch Metadata"}
+            {loading ? <LoadingSpinner size={24} /> : "Fetch Metadata"}
           </Button>
         </div>
       </Card>
       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-      <MetadataDisplay youtubeData={youtubeData!}  />
+      <MetadataDisplay youtubeData={youtubeData!} />
     </div>
   );
 };
