@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as XLSX from "xlsx";
 import { Card, CardContent } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
 import { Textarea } from "../components/ui/TextArea";
@@ -62,6 +63,20 @@ const MusicSEODashboard = () => {
     link.setAttribute("download", "seo-content.csv");
     link.click();
   };
+
+  const exportToExcel = () => {
+  if (!entries || entries.length === 0) return;
+
+  // Convert JSON to worksheet
+  const worksheet = XLSX.utils.json_to_sheet(entries);
+
+  // Create a new workbook and append the worksheet
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+
+  // Trigger download
+  XLSX.writeFile(workbook, "seo-content.xlsx");
+};
 
   return (
     <div className="p-6 max-w-4xl mx-auto mt-[100px]">
@@ -153,9 +168,11 @@ const MusicSEODashboard = () => {
       </div>
 
       {entries.length > 0 && (
-        <Button onClick={exportToCSV} className="mt-6 w-full">
-          <Save className="mr-2" /> Export to CSV
-        </Button>
+        <div className="flex space-x-6 mt-6 justify-center"><Button onClick={exportToCSV} className="w-1/2">
+          <Save /> Export to CSV
+        </Button><Button onClick={exportToExcel} className="w-1/2" >
+            <Save /> Export to Excel
+          </Button></div>
       )}
     </div>
   );
